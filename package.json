@@ -1,0 +1,21 @@
+{
+  "name": "javascript-interfaces-e-heranca-em-orientacao-a-objetos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaovitoroliv/js-interfaces-e-heranca-em-oo-alura.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/joaovitoroliv/js-interfaces-e-heranca-em-oo-alura/issues"
+  },
+  "homepage": "https://github.com/joaovitoroliv/js-interfaces-e-heranca-em-oo-alura#readme"
+}
