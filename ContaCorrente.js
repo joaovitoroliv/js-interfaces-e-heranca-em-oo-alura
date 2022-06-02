@@ -2,15 +2,11 @@ import { Cliente } from "./Cliente.js"
 export class ContaCorrente {
   // Atributo estático que será igual para todas as contasCorrente
   static numeroDeContas = 0;
-  agencia;
-
-  // Atributo privados
-  _cliente;
-  _saldo = 0;
 
   constructor(agencia, cliente){
     this.agencia = agencia;
     this.cliente = cliente;
+    this._saldo = 0;
     ContaCorrente.numeroDeContas += 1;
   }
 

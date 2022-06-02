@@ -1,19 +1,16 @@
-import {Cliente} from './Cliente.js'
-import {ContaCorrente} from './ContaCorrente.js'
+import {Cliente} from './Cliente.js';
+import {ContaCorrente} from './ContaCorrente.js';
+import {ContaPoupanca} from './ContaPoupanca.js';
+import {Conta} from './Conta.js';
 
+// Criação do Cliente e suas contas
 const cliente1 = new Cliente("Ricardo", 11122233345);
-const cliente2 = new Cliente('Alice', 88899933309);
+const contaCorrenteRicardo = new Conta("corrente", 400, cliente1, 1001);
+const contaPoupanca = new Conta("poupanca", 50, cliente1, 1001)
 
-const contaCorrenteRicardo = new ContaCorrente(1001, cliente1);
-contaCorrenteRicardo.depositar(500);
-const contaCorrenteAlice = new ContaCorrente(101, cliente2);
-contaCorrenteRicardo.transferir(200, contaCorrenteAlice)
-
-// Contabilizar o numero de contasCorrentes com atributo estático
-console.log(ContaCorrente.numeroDeContas)
-// console.log(cliente1)
-// console.log(cliente1)
+console.log(contaPoupanca)
 console.log(contaCorrenteRicardo)
-console.log(contaCorrenteAlice)
+
+
 
 
