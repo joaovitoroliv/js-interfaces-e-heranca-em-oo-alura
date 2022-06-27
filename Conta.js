@@ -1,5 +1,10 @@
-export class Conta{
-  constructor(saldoInicial, cliente, agencia){
+// Classes Abstratas: Nunca deve ser instanciada, mas pode ser herdada
+export class Conta {
+  constructor(saldoInicial, cliente, agencia) {
+    // Quero imprimir um erro pois nao deveria ser possível instanciar uma conta dessa forma - throw new Error
+    if (this.constructor == Conta) {
+      throw new Error("\n Voce nao deveria instanciar um objeto do tipo Conta Diretamente, pois essa é uma Classe Abstrata. \n")
+    }
     // Inicializar propriedades sempre como privadas! Se precisar abrir, fazer com um acessor set
     this._saldo = saldoInicial;
     this._cliente = cliente;
@@ -12,7 +17,7 @@ export class Conta{
       this._cliente = novoValor;
     }
   }
-  
+
   get cliente() {
     return this._cliente;
   }
@@ -21,13 +26,13 @@ export class Conta{
     return this._saldo
   }
 
+  // Método abstrato - serve para ser sobrescrito e nunca ser chamado diretamente!
   sacar(valor) {
-    let taxa = 1;
-    return this._sacar(valor, taxa);
+    throw new Error("\n O método 'Sacar' da Conta é abstrato. \n");
   }
 
   // Método privado - sacar != _sacar
-  _sacar(valor, taxa){
+  _sacar(valor, taxa) {
     const valorSacado = taxa * valor;
     if (this._saldo >= valorSacado) {
       this._saldo -= valorSacado;
@@ -44,7 +49,7 @@ export class Conta{
     const valorSacado = this.sacar(valor);
     conta.depositar(valorSacado);
   }
-  testeHerdado(){
+  testeHerdado() {
     console.log("teste herdado da classe conta")
   }
 }

@@ -2,12 +2,12 @@ import { Conta } from "./Conta.js"
 export class ContaCorrente extends Conta {
   // Atributo estático que será igual para todas as contasCorrente
   static numeroDeContas = 0;
-  constructor(cliente, agencia){
+  constructor(cliente, agencia) {
     // Herdar Propriedades com super
     super(0, cliente, agencia);
     ContaCorrente.numeroDeContas += 1;
   }
-  teste(){
+  teste() {
     // Herdou método teste da classe Conta
     super.testeHerdado();
     console.log("teste na classe contaCorrente")
