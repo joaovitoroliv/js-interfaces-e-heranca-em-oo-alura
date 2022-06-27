@@ -1,25 +1,19 @@
 import { Cliente } from './Cliente.js';
-import { ContaCorrente } from './ContaCorrente.js';
-import { ContaPoupanca } from './ContaPoupanca.js';
-import { ContaSalario } from './ContaSalario.js';
+import { Gerente } from './Funcionarios/Gerente.js';
+import { Diretor } from './Funcionarios/Diretor.js';
+import { SistemaAutenticacao } from './SistemaAutenticacao.js';
+// Ctrl + D para encontrar próximas referencias
 
-// Criação do Cliente e suas contas
-const cliente1 = new Cliente("Ricardo", 11122233345);
+// Aprendendo Polimorfismo
+const diretor = new Diretor("Rodrigo", 10000, 12345678945602);
+diretor.cadastrarSenha("123456");
+const gerente = new Gerente("Ricardo", 5000, 12345678945601);
+gerente.cadastrarSenha("098765");
+const cliente = new Cliente("Lais", 12345678991, "456");
 
-const contaCorrenteRicardo = new ContaCorrente(cliente1, 1001);
+const gerenteEstaLogado = SistemaAutenticacao.login(diretor, "123456");
+const diretorEstaLogado = SistemaAutenticacao.login(gerente, "098765");
+console.log(gerenteEstaLogado, diretorEstaLogado);
 
-const contaPoupanca = new ContaPoupanca(50, cliente1, 1001);
-
-// Quero proibir esse comportamento - Usamos classes abstratas para isso, ir para Conta.js
-// const conta = new Conta(0, cliente1, 1001);
-// console.log(conta);
-const Joao = new Cliente("João", 11122219000);
-const ContaJoao = new ContaSalario(Joao);
-ContaJoao.depositar(100);
-ContaJoao.sacar(10);
-console.log(ContaJoao);
-
-
-
-
-
+const clienteEstaLogado = SistemaAutenticacao.login(cliente, "4456");
+console.log(clienteEstaLogado);
