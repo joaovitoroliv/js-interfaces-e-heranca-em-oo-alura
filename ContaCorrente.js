@@ -1,46 +1,22 @@
-import { Cliente } from "./Cliente.js"
-export class ContaCorrente {
+import { Conta } from "./Conta.js"
+export class ContaCorrente extends Conta {
   // Atributo estático que será igual para todas as contasCorrente
   static numeroDeContas = 0;
-
-  constructor(agencia, cliente){
-    this.agencia = agencia;
-    this.cliente = cliente;
-    this._saldo = 0;
+  constructor(cliente, agencia){
+    // Herdar Propriedades com super
+    super(0, cliente, agencia);
     ContaCorrente.numeroDeContas += 1;
   }
-
-  set cliente(novoValor) {
-    // Quero verificar se o valor de cliente é uma instancia de 'Cliente'
-    if (novoValor instanceof Cliente) {
-      this._cliente = novoValor;
-    }
+  teste(){
+    // Herdou método teste da classe Conta
+    super.testeHerdado();
+    console.log("teste na classe contaCorrente")
   }
-  
-  get cliente() {
-    return this._cliente;
-  }
-
-  get saldo() {
-    return this._saldo
-  }
-
-
-
-  
-
+  // Especialização de Comportamento do método Sacar da Conta Corrente
+  // Sobreescrevendo o comportamento de sacar
   sacar(valor) {
-    if (this._saldo >= valor) {
-      this._saldo -= valor;
-      return valor;
-    }
-  }
-  depositar(valor) {
-    if (valor <= 0) return;
-    this._saldo += valor;
-  }
-  transferir(valor, conta) {
-    const valorSacado = this.sacar(valor);
-    conta.depositar(valorSacado);
+    let taxa = 1.1;
+    // Método privado sacar herdado da classe Conta
+    return super._sacar(valor, taxa);
   }
 }
