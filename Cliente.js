@@ -9,7 +9,7 @@ get cpf(){
     this._senha = senha;
   }
 
-  autenticar(senha){
-    return senha == this._senha;
+  autenticar(){
+    return true;
   }
 }

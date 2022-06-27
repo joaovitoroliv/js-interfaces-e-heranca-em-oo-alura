@@ -4,7 +4,8 @@ import { Diretor } from './Funcionarios/Diretor.js';
 import { SistemaAutenticacao } from './SistemaAutenticacao.js';
 // Ctrl + D para encontrar próximas referencias
 
-// Aprendendo Polimorfismo
+// Aprendendo POLIMORFISMO: Tratar objetos diferentes, de maneiras similares
+// Passamos um Diretor, um Gerente e um Cliente para o nosso Sistema de Autenticação e deu tudo certo - DuckType
 const diretor = new Diretor("Rodrigo", 10000, 12345678945602);
 diretor.cadastrarSenha("123456");
 const gerente = new Gerente("Ricardo", 5000, 12345678945601);
